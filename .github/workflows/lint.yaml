@@ -16,7 +16,7 @@ jobs:
         uses: shivammathur/setup-php@v2
       - name: Install dependencies
         run: composer install --no-progress --no-suggest
-      - name: Run CodeSniffer
+      - name: Run PHPUnit
         run: composer run phpunit
   phpcs:
     needs: phpunit
