@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: composer install --no-progress --no-suggest
       - name: Run PHPUnit
-        run: composer run phpunit
+        run: composer phpunit
   phpcs:
     needs: phpunit
     runs-on: ubuntu-latest
@@ -28,4 +28,4 @@ jobs:
       - name: Install dependencies
         run: composer install --no-progress --no-suggest
       - name: Run CodeSniffer
-        run: composer run phpcs
+        run: composer phpcs
