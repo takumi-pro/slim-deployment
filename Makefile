@@ -8,4 +8,4 @@ down:
 
 .PHONY: connect-container
 connect-container:
-	docker exec -it slim_db_1 /bin/sh
+	docker exec -it postgres /bin/sh
