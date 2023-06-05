@@ -7,7 +7,8 @@
         "guzzlehttp/psr7": "^2",
         "laminas/laminas-diactoros": "^3.0",
         "robmorgan/phinx": "*",
-        "illuminate/database": "^10.13"
+        "illuminate/database": "^10.13",
+        "phpunit/phpunit": "^10.2"
     },
     "autoload": {
       "psr-4": {
@@ -15,8 +16,7 @@
       }
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.7",
-        "phpunit/phpunit": "^10.2"
+        "squizlabs/php_codesniffer": "^3.7"
     },
     "scripts": {
       "phpcs": "vendor/bin/phpcs --standard=PSR1,PSR12 src",
