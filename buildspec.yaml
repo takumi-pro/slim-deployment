@@ -9,5 +9,6 @@ phases:
     commands:
     - composer run phpunit
 artifacts:
+  type: zip
   files:
     - '**/*'
