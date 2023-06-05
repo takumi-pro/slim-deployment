@@ -2,8 +2,8 @@
 
 require 'vendor/autoload.php';
 
-use App\Controller\HelloController;
-use PHPUnit\Framework\TestCase;
+use \App\Controller\HelloController;
+use \PHPUnit\Framework\TestCase;
 
 class HelloTest extends TestCase
 {
