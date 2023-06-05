@@ -4,7 +4,18 @@ on:
   push:
 
 jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+      - name: Install dependencies
+        run: composer install --no-progress --no-suggest
+      - name: Run PHPUnit
+        run: composer run phpunit
   phpcs:
+    needs: phpunit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,16 +24,4 @@ jobs:
       - name: Install dependencies
         run: composer install --no-progress --no-suggest
       - name: Run CodeSniffer
-        run: composer phpcs
-  phpunit:
-    needs: phpcs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: composer install --no-progress --no-suggest
-      - name: Run PHPUnit
-        run: composer phpunit
+        run: composer run phpcs
