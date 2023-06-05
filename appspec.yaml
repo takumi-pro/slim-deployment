@@ -3,6 +3,11 @@ os: linux
 files:
   - source: /
     destination: /var/www/html
+permissions:
+  - object: /var/www/html/
+    pattern: "**"
+    owner: apache
+    group: apache
 hooks:
   ApplicationStart:
     - location: scripts/start_server.sh
