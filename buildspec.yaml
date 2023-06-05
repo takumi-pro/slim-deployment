@@ -8,3 +8,6 @@ phases:
   build:
     commands:
     - composer run phpunit
+artifacts:
+  files:
+    - '**/*'
