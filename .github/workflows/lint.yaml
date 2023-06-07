@@ -34,6 +34,8 @@ jobs:
       - name: Set up AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{}}
-          aws-secret-access-key: ${{}}
-          aws-region: ap-northeast-1a
+          role-to-assume: arn:aws:iam::656337613100:role/slim-github-oidcid
+          role-session-name: slim-session
+          aws-region: ap-northeast-1
+      - name: Code Build
+        run: aws codebuild start-build --project-name slim-build
