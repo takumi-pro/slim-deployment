@@ -8,6 +8,7 @@ phases:
   build:
     commands:
     - composer run phpunit
+    - composer run phpcs
 artifacts:
   type: zip
   files:

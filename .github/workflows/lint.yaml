@@ -1,4 +1,4 @@
-name: PHP_CodeSniffer
+name: build-deploy
 on:
   pull_request:
   push:
@@ -25,3 +25,15 @@ jobs:
         run: composer install --no-progress --no-suggest
       - name: Run CodeSniffer
         run: composer run phpcs
+  codebuild:
+    needs: phpcs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{}}
+          aws-secret-access-key: ${{}}
+          aws-region: ap-northeast-1a
