@@ -84,8 +84,6 @@ GIthub側でやること
 
 https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services#updating-your-github-actions-workflow
 
-
-
 ## 参考
 - https://qiita.com/harukisan/items/6ac138619d0c9131904c
 - [Amazon Linux または RHEL 用のCodeDeploy Agent をインストールする](https://docs.aws.amazon.com/ja_jp/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html)

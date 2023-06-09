@@ -9,11 +9,7 @@ phases:
     commands:
     - composer run phpunit
     - composer run phpcs
-  post_build:
-    commands:
-    - zip -r slim-build.zip .
-    - aws s3 cp slim-build.zip s3://slim-codebuild-bucket
-# artifacts:
-#   type: zip
-#   files:
-#     - '**/*'
+artifacts:
+  type: zip
+  files:
+    - '**/*'
