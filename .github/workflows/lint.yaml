@@ -58,8 +58,9 @@ jobs:
           role-session-name: slim-session
           aws-region: ap-northeast-1
       - name: Code Deploy
-        run: aws deploy create-deployment \
-              --application-name slim \
-              --deployment-config-name CodeDeployDefault.AllAtOnce \
-              --deployment-group-name slim-deploy-group \
-              --s3-location bucket=slim-codebuild-bucket,bundleType=zip,key=slim-build
+        run: >
+            aws deploy create-deployment
+            --application-name slim
+            --deployment-config-name CodeDeployDefault.AllAtOnce
+            --deployment-group-name slim-deploy-group
+            --s3-location bucket=slim-codebuild-bucket,bundleType=zip,key=slim-build
