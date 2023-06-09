@@ -71,6 +71,20 @@ chmod +x ./install
 sudo ./install auto
 ```
 
+### Github ActionsによるCodeBuildの実行
+AWS側でやること
+- IAMロールの作成
+
+https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_roles_providers_create_oidc.html
+
+GIthub側でやること
+- ワークフロー編集
+  - `aws-actions/configure-aws-credentials@v2`の使用
+  - permissionの付与
+
+https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services#updating-your-github-actions-workflow
+
+
 
 ## 参考
 - https://qiita.com/harukisan/items/6ac138619d0c9131904c
