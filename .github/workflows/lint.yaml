@@ -42,25 +42,31 @@ jobs:
           aws-region: ap-northeast-1
       - name: Code Build
         run: aws codebuild start-build --project-name slim-build
-  codedeploy:
+  test:
     needs: codebuild
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: arn:aws:iam::656337613100:role/slim-github-oidcid
-          role-session-name: slim-session
-          aws-region: ap-northeast-1
-      - name: Code Deploy
-        run: >
-            aws deploy create-deployment
-            --application-name slim
-            --deployment-config-name CodeDeployDefault.AllAtOnce
-            --deployment-group-name slim-deploy-group
-            --s3-location bucket=slim-codebuild-bucket,bundleType=zip,key=slim-build
+      - name: hello
+        run: echo 'hello'
+  # codedeploy:
+  #   needs: codebuild
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     id-token: write
+  #     contents: read
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #     - name: Set up AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v2
+  #       with:
+  #         role-to-assume: arn:aws:iam::656337613100:role/slim-github-oidcid
+  #         role-session-name: slim-session
+  #         aws-region: ap-northeast-1
+  #     - name: Code Deploy
+  #       run: >
+  #           aws deploy create-deployment
+  #           --application-name slim
+  #           --deployment-config-name CodeDeployDefault.AllAtOnce
+  #           --deployment-group-name slim-deploy-group
+  #           --s3-location bucket=slim-codebuild-bucket,bundleType=zip,key=slim-build
