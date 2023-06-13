@@ -40,20 +40,7 @@ jobs:
           role-to-assume: arn:aws:iam::656337613100:role/slim-github-oidcid
           role-session-name: slim-session
           aws-region: ap-northeast-1
-      - name: Code Build
-        run: aws codebuild start-build --project-name slim-build
-      - name: Check build status
-        run: |
-          build_status=$(aws codebuild batch-get-builds --ids $(aws codebuild list-builds-for-project --project-name slim-build --query 'ids[0]' --output text) --query 'builds[0].buildStatus' --output text)
-          echo "Build Status: $build_status"
-          echo "::set-output name=status::$build_status"
-  test:
-    needs: codebuild
-    if: ${{ needs.codebuild.outputs.status == 'SUCCEEDED' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: hello
-        run: echo 'hello'
+
   # codedeploy:
   #   needs: codebuild
   #   runs-on: ubuntu-latest
